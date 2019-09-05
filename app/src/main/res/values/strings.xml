@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">FoodApp</string>
     <string name="str_login_lable">Login</string>
+    <string name="str_register_lable">Register</string>
+    <string name="str_signup_lable">Signup</string>
 </resources>

@@ -1,5 +1,6 @@
 package official.com.foodapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity{
 
     EditText username,password;
-    Button login;
+    Button login,signup;
     TextView textView;
     String TAG = "MainActivity";
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity{
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
+        signup = (Button) findViewById(R.id.signup);
         textView = (TextView) findViewById(R.id.textview);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +42,13 @@ public class MainActivity extends AppCompatActivity{
                 }else {
                     textView.setText("Invalid credential.");
                 }
+            }
+        });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Registration.class);
+                startActivity(intent);
             }
         });
 
