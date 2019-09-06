@@ -1,6 +1,7 @@
 package official.com.foodapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity{
     Button login,signup;
     TextView textView;
     String TAG = "MainActivity";
+    SharedPreferences UserPref;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,16 +32,18 @@ public class MainActivity extends AppCompatActivity{
         login = (Button) findViewById(R.id.login);
         signup = (Button) findViewById(R.id.signup);
         textView = (TextView) findViewById(R.id.textview);
+        UserPref = getSharedPreferences("User",MODE_PRIVATE);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String str_usernam = username.getText().toString();
                 String str_password = password.getText().toString();
-                if (str_usernam.equals("admin") && str_password.equals("admin")){
+                String username_shredpref = UserPref.getString("uname","null");
+                String password_shredpref = UserPref.getString("upass","null");
+                if (str_usernam.equals(username_shredpref) && str_password.equals(password_shredpref)){
+                    Toast.makeText(MainActivity.this,"User successfully login",Toast.LENGTH_SHORT).show();
                     textView.setText("User succesfully login in.");
 
-                    // store locally these value
-                    // username, id, is_login = ture;
                 }else {
                     textView.setText("Invalid credential.");
                 }
