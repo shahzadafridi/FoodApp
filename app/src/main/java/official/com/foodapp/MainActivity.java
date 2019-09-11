@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity{
     TextView textView;
     String TAG = "MainActivity";
     SharedPreferences UserPref;
+    SharedPreferences.Editor UserPrefEditor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity{
         signup = (Button) findViewById(R.id.signup);
         textView = (TextView) findViewById(R.id.textview);
         UserPref = getSharedPreferences("User",MODE_PRIVATE);
+        UserPrefEditor = UserPref.edit();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity{
                 if (str_usernam.equals(username_shredpref) && str_password.equals(password_shredpref)){
                     Toast.makeText(MainActivity.this,"User successfully login",Toast.LENGTH_SHORT).show();
                     textView.setText("User succesfully login in.");
+                    UserPrefEditor.putBoolean("isLogin",true);
+                    UserPrefEditor.commit();
 
                 }else {
                     textView.setText("Invalid credential.");
@@ -63,7 +67,13 @@ public class MainActivity extends AppCompatActivity{
     protected void onStart() {
         super.onStart();
         Log.e(TAG, "onStart");
-        // is_login = true go to main activity.
+        UserPref = getSharedPreferences("User",MODE_PRIVATE);
+        boolean isLogin = UserPref.getBoolean("isLogin",false);
+        if (isLogin){
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+            intent.putExtra("message","Hello this is shahzad afridi");
+            startActivity(intent);
+        }
     }
 
     @Override
