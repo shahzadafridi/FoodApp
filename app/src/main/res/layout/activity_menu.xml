@@ -7,9 +7,10 @@
     tools:context=".MenuActivity">
 
 
-    <TextView
-        android:text="Hell menu activity...."
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Insert"
+        android:onClick="insert"/>
 
 </RelativeLayout>

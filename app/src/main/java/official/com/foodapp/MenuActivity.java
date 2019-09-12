@@ -8,7 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import official.com.foodapp.SQLite.SQLiteAdapter;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -47,4 +50,8 @@ public class MenuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void insert(View view) {
+        SQLiteAdapter adapter = new SQLiteAdapter(MenuActivity.this);
+        adapter.insertUser(2,"shahzad","23","2897128","dosaifjajdlsa");
+    }
 }
