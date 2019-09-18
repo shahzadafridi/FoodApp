@@ -8,9 +8,32 @@
 
 
     <Button
+        android:id="@+id/insert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Insert"
         android:onClick="insert"/>
+
+    <Button
+        android:id="@+id/update"
+        android:layout_below="@+id/insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:onClick="update"/>
+
+    <Button
+        android:layout_below="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read"
+        android:onClick="read"/>
+
+    <Button
+        android:layout_below="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restauranants"
+        android:onClick="restauranants"/>
 
 </RelativeLayout>

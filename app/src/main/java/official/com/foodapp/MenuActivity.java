@@ -54,4 +54,21 @@ public class MenuActivity extends AppCompatActivity {
         SQLiteAdapter adapter = new SQLiteAdapter(MenuActivity.this);
         adapter.insertUser(2,"shahzad","23","2897128","dosaifjajdlsa");
     }
+
+    public void update(View view) {
+        SQLiteAdapter adapter = new SQLiteAdapter(MenuActivity.this);
+        adapter.updateUser("2","khan","22","323223232","university road");
+
+    }
+
+
+    public void read(View view) {
+        SQLiteAdapter adapter = new SQLiteAdapter(MenuActivity.this);
+        adapter.readUser();
+    }
+
+    public void restauranants(View view) {
+        Intent intent = new Intent(MenuActivity.this,Restauranants.class);
+        startActivity(intent);
+    }
 }
