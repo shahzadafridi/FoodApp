@@ -71,4 +71,9 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(MenuActivity.this,Restauranants.class);
         startActivity(intent);
     }
+
+    public void restauranantsRecyclerView(View view) {
+        Intent intent = new Intent(MenuActivity.this,Restauranants_RecyclerView.class);
+        startActivity(intent);
+    }
 }

@@ -24,6 +24,7 @@ public class Restauranants extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restauranants);
         listView = (ListView) findViewById(R.id.restaurants_listview);
+
 //        items.add("item1");
 //        items.add("item2");
 //        items.add("item3");
@@ -50,7 +51,6 @@ public class Restauranants extends AppCompatActivity {
         p2.setPrice("250");
         p2.setRatting(" 3.5");
         products.add(p2);
-
 
         // Product 3
         Product p3 = new Product();
